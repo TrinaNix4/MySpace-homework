@@ -9,7 +9,8 @@ import AuthProvider from './providers/AuthProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
  import { initMiddleware } from 'devise-axios';
 
-//this going to get token 
+//this going to get token from api calls and set them to be
+//sent on the next api call, also stores info to localStorage
 initMiddleware(); 
 
 

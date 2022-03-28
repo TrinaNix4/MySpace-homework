@@ -109,7 +109,8 @@ if fetchUser is in progress of Checking it looks like this
 - it create our model (in this case the user model)
 3. add extend Devise::Models to user.rb file
 4. added AddTrackableToUsers migration
-```
+
+```ruby
 
 class AddTrackableToUsers < ActiveRecord::Migration[6.0]
   def change
@@ -130,6 +131,7 @@ we have all the routes defined and controller action setup for us...
  ```
 Rails.application.routes.draw do
   # generates all devise routes
+  # and controller actions are all setup for us 
   mount_devise_token_auth_for 'User', at: 'api/auth'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -137,9 +139,30 @@ end
 
 ```
 ## main features on backend
-we to protect routes on the backend before_action :authenticate_user!
+way to protect routes on the backend before_action :authenticate_user1 
+- if auth is successful then we have 
+current user 
 
-way to get 'logged in user' on the backend current_user
+way to get logged-in-'user' on the backend current_user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # starter page setup 
