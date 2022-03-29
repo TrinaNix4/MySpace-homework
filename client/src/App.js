@@ -11,6 +11,7 @@ import HomeClass from './components/shared/HomeClass';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FetchUser from './components/shared/FetchUser';
 import ProtectedRoute from './components/shared/ProtectRoute';
+import MyFriends from './components/shared/MyFriends';
 
 
 //Fetch User: going to see if the user is logged in(valid user?)
@@ -32,12 +33,13 @@ function App() {
       {/* unprotected - */}
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Register />}/>
-        <Route path='/' element={<Home />}/>
         
         {/* protected  routes inside here need to be logged in
         otherwise, you go to the login page */}
       <Route element= {<ProtectedRoute />}> 
         <Route path='/home' element={<HomeClass yo={'yoyo'}/>}/> 
+        <Route path='/' element={<Home />}/>
+        <Route path='/my_friends' element={<MyFriends />}/>
         </Route>
         <Route path='*' element={<NoMatch />}/>
       </Routes>
