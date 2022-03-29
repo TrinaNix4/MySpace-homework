@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import { Container, Row, Col, Image } from "react-bootstrap";
+import { Card, Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+
 
 // this page should show unliked friends for a logged in user
 const Home = () => {
@@ -20,6 +23,7 @@ const Home = () => {
     try {
       let res = await axios.get("/api/friends");
       setFriends(res.data);
+      console.log(res.data)
     } catch (err) {
       setError(err);
     }
@@ -30,6 +34,7 @@ const Home = () => {
     if (friends.length) {
       // come up with whole number 0 - friends.length -1
       const index = Math.floor(Math.random() * friends.length);
+      const index2 = Math.floor(Math.random() * friends.length);
       return friends[index];
     }
     return null;
@@ -63,34 +68,75 @@ const Home = () => {
   }
   if (friend) {
     return (
+      
       <>
+       <Link to="/my_friends">
+          <Button className="btn.spacing" variant="dark">My Friends</Button>
+        </Link>
+       
        <p>message: { message}</p>
         <br />
         <h1>MySpace </h1>
         <br />
+        <Container>
+            <Row>
+              <Col md={3}>
+                <Card 
+                  bg="light"
+                  className="mb-3">
+                <Image 
+                  src={friend.avatar}
+                  className="card-img-top"
+                  fluid 
+                  />
+                  <Card.Body>
+                    <Card.Title>{friend.name}</Card.Title>
+                    <Card.Text>
+                      <p>Age: {friend.age}</p>
+                      <p>Location: {friend.location}</p>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col md={3}>
+                <Card 
+                  bg="light"
+                  className="mb-3">
+                <Image 
+                  src={friend.avatar} 
+                  className="card-img-top"
+                  fluid
+                  />
+                  <Card.Body>
+                    <Card.Title>{friend.name}</Card.Title>
+                    <Card.Text>
+                      <p>Age: {friend.age}</p>
+                      <p>Location: {friend.location}</p>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+        </Container>
         <div key={friend.id}>
-          <img src={friend.avatar} />
           <section>
-            <h3>{friend.name}</h3>
-            <p>{friend.age}</p>
-            <p>{friend.location}</p>
+            
+            
           </section>
           <section>
-            <button onClick={() => removeFriendFromUI(friend.id)}>thumbs down</button>
-            <button onClick={() => upVote(friend.id)}>thumbs up</button>
+            <Button className="btn-spacing" variant="primary" onClick={() => removeFriendFromUI(friend.id)}>thumbs down</Button>
+            <Button className="btn-spacing" variant="primary" onClick={() => upVote(friend.id)}>thumbs up</Button>
           </section>
         </div>
-        <Link to="/my_friends">
-          <button>My Friends</button>
-        </Link>
+       
       </>
     );
   } else {
     return (
     <>
-<h1>No More Friends</h1>;
-        <Link to="my_friends">
-          <button>My Friends</button>
+<h1>Sorry, no More Friends!</h1>;
+       <Link to="my_friends">
+          <Button variant="dark">My Friends</Button>
         </Link>
         </>
     );

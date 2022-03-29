@@ -1,14 +1,15 @@
 // import { Link, Outlet } from "react-router-dom"
-// import NavDropdown from 'react-bootstrap/NavDropdown'
-// import Nav from 'react-bootstrap/Nav'
-// import Navbar from 'react-bootstrap/Navbar'
-// import Container from 'react-bootstrap/Container'
+ import NavDropdown from 'react-bootstrap/NavDropdown'
+ import Nav from 'react-bootstrap/Nav'
+ import Navbar from 'react-bootstrap/Navbar'
+ import Container from 'react-bootstrap/Container'
 
+import { Button } from "bootstrap";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
-const Navbar = () => {
+const MyNavbar = () => {
   const auth = useContext(AuthContext);
   //   const {user} = useContext(AuthContext);
   //    if(user) => logout
@@ -37,14 +38,20 @@ const Navbar = () => {
   };
   
   return (
+
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div>
-      {renderLeft()}
+  
+
+       <div>
+     
         <Link className="Nav-link" to="/">Home</Link>
         {renderLeft()}
 
       </div>
-      <div>{renderRightNav()}</div>
+      <div>{renderRightNav()}</div> 
+    
+    
+    
     </div>
   );
 };
@@ -92,4 +99,4 @@ const Navbar = () => {
 
 
 
-  export default Navbar
+  export default MyNavbar

@@ -6,12 +6,13 @@ import Home from './components/shared/Home';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import NoMatch from './components/shared/NoMatch';
-import Navbar from './components/shared/Navbar';
+import MyNavbar from './components/shared/Navbar';
 import HomeClass from './components/shared/HomeClass';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FetchUser from './components/shared/FetchUser';
 import ProtectedRoute from './components/shared/ProtectRoute';
 import MyFriends from './components/shared/MyFriends';
+
 
 
 //Fetch User: going to see if the user is logged in(valid user?)
@@ -25,7 +26,7 @@ import MyFriends from './components/shared/MyFriends';
 function App() {
   return (
     <div>
-      <Navbar/>
+      <MyNavbar/>
       {/* when our app first mounts, FetchUser runs */}
       <FetchUser>
       <>
