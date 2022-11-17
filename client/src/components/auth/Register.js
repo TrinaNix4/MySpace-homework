@@ -27,12 +27,19 @@ const Register = () => {
     to prevent the default */}
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <p></p>
-        <input placeholder= "Email" value={email} onChange={(e)=> setEmail(e.target.value)}/>
-      <p></p>
-        <input placeholder= "Password" value={password} onChange={(e)=> setPassword(e.target.value)}/> 
+        <input 
+          placeholder= "Email" value={email} 
+          onChange={(e)=> setEmail(e.target.value)}/>
+        <input 
+          placeholder= "Password"  
+          value={password} 
+          onChange={(e)=> setPassword(e.target.value)}/> 
       <br></br>
-      <Button onClick={handleSubmit} className="btn-spacing" size="sm" variant="dark">Register</Button>
+      <Button 
+          onClick={handleSubmit} 
+          className="btn-spacing" 
+          size="sm" 
+          variant="dark">Register</Button>
       </form>
     </div>
   )
