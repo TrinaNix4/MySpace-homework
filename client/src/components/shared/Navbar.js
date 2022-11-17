@@ -45,6 +45,7 @@ const MyNavbar = () => {
        <div>
      
         <Link className="Nav-link" to="/">Home</Link>
+        <Link className="Nav-link" to="/about">About</Link>
         {renderLeft()}
 
       </div>
