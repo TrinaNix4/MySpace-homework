@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import FetchUser from './components/shared/FetchUser';
 import ProtectedRoute from './components/shared/ProtectRoute';
 import MyFriends from './components/shared/MyFriends';
+import About from './components/shared/About';
 
 
 
@@ -40,6 +41,7 @@ function App() {
       <Route element= {<ProtectedRoute />}> 
         <Route path='/home' element={<HomeClass yo={'yoyo'}/>}/> 
         <Route path='/' element={<Home />}/>
+        <Route path='/about' element={<About />}/>
         <Route path='/my_friends' element={<MyFriends />}/>
         </Route>
         <Route path='*' element={<NoMatch />}/>
