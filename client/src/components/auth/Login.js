@@ -24,10 +24,14 @@ const Login = () => {
       <h1>Welcome to Myspace</h1>
       <p>Existing users, login below to get started.</p>
       <form onSubmit={handleSubmit}>
-        <p></p>
-        <input placeholder= "Email" value={email} onChange={(e)=> setEmail(e.target.value)}/>
-      <p></p>
-        <input placeholder= "Password" value={password} onChange={(e)=> setPassword(e.target.value)}/> 
+        <input 
+          placeholder= "Email" 
+          value={email} 
+          onChange={(e)=> setEmail(e.target.value)}/>
+     
+        <input 
+          placeholder= "Password" 
+          value={password} onChange={(e)=> setPassword(e.target.value)}/> 
       <br></br>
       <p>Want to sign-up? <Link className="Nav-link" to="/register">Register</Link>here.</p>
       <Button onClick={handleSubmit} className="btn-spacing" size="sm" variant="dark">Login</Button>
